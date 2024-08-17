@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://qxiapkxv2gtj"]
+[gd_scene load_steps=70 format=3 uid="uid://qxiapkxv2gtj"]
 
 [ext_resource type="Texture2D" uid="uid://cd5oux6qcypqo" path="res://Assets/RCCv2STREETStileset/tileset/streetsBprops.png" id="1_7wbnh"]
 [ext_resource type="Texture2D" uid="uid://cxwihdr5k1dm0" path="res://Assets/RCCv2STREETStileset/tileset/streetsCprops.png" id="2_gpiig"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://b4px5tsr0c74a" path="res://Assets/corpo/INTERIORtiles.png" id="14_mnob6"]
 [ext_resource type="PackedScene" uid="uid://dv0e5f5uy2t0o" path="res://mouse/mouse.tscn" id="15_3kpbl"]
 [ext_resource type="AudioStream" uid="uid://cd8dlc4y83h81" path="res://Assets/sound/Beat Mekanik - Ohms.mp3" id="16_rbpsf"]
+[ext_resource type="PackedScene" path="res://cheese.tscn" id="23_gli5c"]
+[ext_resource type="PackedScene" path="res://dog.tscn" id="24_54ybj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_73rh0"]
 tile_data = PackedInt32Array(0, 65538, 0, 65536, 65538, 1, 131072, 65538, 0, 196608, 65538, 1, 1, 131074, 0, 65537, 131074, 1, 131073, 131074, 0, 196609, 131074, 1, 2, 65538, 0, 65538, 65538, 1, 131074, 65538, 0, 196610, 65538, 1, 3, 131074, 0, 65539, 131074, 1, 131075, 131074, 0, 196611, 131074, 1)
@@ -12859,3 +12861,9 @@ layer_3/tile_data = PackedInt32Array(-196602, 262144, 0, -131066, 262144, 1, -19
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_rbpsf")
 autoplay = true
+
+[node name="Cheese" parent="." instance=ExtResource("23_gli5c")]
+position = Vector2(-77, -22)
+
+[node name="dog" parent="." instance=ExtResource("24_54ybj")]
+position = Vector2(-116, 97)
