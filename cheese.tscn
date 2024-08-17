@@ -44,4 +44,4 @@ sprite_frames = SubResource("SpriteFrames_1fpa3")
 animation = &"walk"
 
 [node name="NPCCollision" parent="." index="1"]
-position = Vector2(0, 0)
+position = Vector2(0, 1)
