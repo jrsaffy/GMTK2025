@@ -7,7 +7,7 @@ public partial class AnimationController : AnimatedSprite2D
 	public Vector2 direction;
 	// Called when the node enters the scene tree for the first time.
 	int facing = 1; //Right = 1, left = -1
-	string animation = "idle";
+	public string animation = "idle";
 
 	public bool eating = false;
 
