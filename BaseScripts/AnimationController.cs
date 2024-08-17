@@ -14,7 +14,7 @@ public partial class AnimationController : AnimatedSprite2D
 	void setXDirection()
 	{
 		float x = direction.X;
-		GD.Print(x);
+		// GD.Print(x);
 		if(x > 0)
 		{
 			facing = 1;

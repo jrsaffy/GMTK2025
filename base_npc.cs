@@ -1,11 +1,13 @@
 using Godot;
 using System;
+using System.Diagnostics.Tracing;
 
 public partial class base_npc : StaticBody2D
 {
 	[Export]
 	int speed = 100;
-	int scale = 1;
+	float scale = 1;
+
 	int food;
 
 	[Export]
@@ -16,7 +18,35 @@ public partial class base_npc : StaticBody2D
 	
 	void setSize()
 	{
-		scale = food / base_food;
+		scale = (float)food / base_food;
+		Vector2 one_vector = new Vector2(1f,1f);
+		animation_controller.Scale = one_vector * scale;
+	}
+
+	public virtual void Eat()
+	{
+
+	}
+
+	public virtual void setTarget()
+	{
+		
+	}
+
+
+	void die()
+	{
+		if (food == 0)
+		{
+			QueueFree();
+		}
+	}
+
+	public void getEaten()
+	{
+		GD.Print("Getting Eaten");
+		GD.Print($"food: {food}, scale: {Scale}");
+		food--;
 	}
 
 	void MoveAndSlide()
@@ -42,13 +72,17 @@ public partial class base_npc : StaticBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		animation_controller = GD.Load<AnimationController>("AnimationController");
+		food = base_food;
+		animation_controller = GetNode<AnimationController>("AnimationController");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		setSize();
 		move(delta);
+		die();
 
 	}
+
 }

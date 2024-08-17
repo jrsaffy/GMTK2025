@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://oag5m2jfb5k2"]
+[gd_scene load_steps=4 format=3 uid="uid://oag5m2jfb5k2"]
 
-[ext_resource type="Script" path="res://base_npc.cs" id="1_eigcd"]
 [ext_resource type="PackedScene" uid="uid://db8bfobseiu3k" path="res://animation_controller.tscn" id="2_goqeo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bwt0s"]
@@ -25,7 +24,6 @@ animations = [{
 size = Vector2(26, 20)
 
 [node name="BaseNPC" type="StaticBody2D"]
-script = ExtResource("1_eigcd")
 
 [node name="AnimationController" parent="." instance=ExtResource("2_goqeo")]
 position = Vector2(1, 4)
