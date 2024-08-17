@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c31syrtbg073r"]
+[gd_scene load_steps=3 format=3 uid="uid://c31syrtbg073r"]
+
+[ext_resource type="Script" path="res://detector.cs" id="1_v2cm0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrd1y"]
-radius = 40.0
+radius = 75.0
 
 [node name="Detector" type="Area2D"]
+script = ExtResource("1_v2cm0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wrd1y")
