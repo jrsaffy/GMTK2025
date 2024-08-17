@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd8dlc4y83h81"
+path="res://.godot/imported/Beat Mekanik - Ohms.mp3-38a28a1c9b0f4d82bb0b375e20034bf8.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound/Beat Mekanik - Ohms.mp3"
+dest_files=["res://.godot/imported/Beat Mekanik - Ohms.mp3-38a28a1c9b0f4d82bb0b375e20034bf8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
