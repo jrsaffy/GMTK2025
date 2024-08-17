@@ -128,7 +128,7 @@ script = ExtResource("2_2fs21")
 [node name="AnimationController" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_4ljhe")
 animation = &"walk"
-frame_progress = 0.962799
+frame_progress = 0.138759
 
 [node name="NPCCollision" parent="." index="1"]
 position = Vector2(-3, 7)

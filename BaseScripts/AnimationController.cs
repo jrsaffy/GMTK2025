@@ -11,21 +11,21 @@ public partial class AnimationController : AnimatedSprite2D
 
 	public bool eating = false;
 
-	// void setXDirection()
-	// {
-	// 	float x = direction.X;
-	// 	// GD.Print(x);
-	// 	if(x > 0)
-	// 	{
-	// 		facing = 1;
-	// 		FlipH = false;
-	// 	}
-	// 	if(x < 0)
-	// 	{
-	// 		facing = -1;
-	// 		FlipH = true;
-	// 	}
-	// }
+	void setXDirection()
+	{
+		float x = direction.X;
+		// GD.Print(x);
+		if(x > 0)
+		{
+			facing = 1;
+			FlipH = false;
+		}
+		if(x < 0)
+		{
+			facing = -1;
+			FlipH = true;
+		}
+	}
 
 	void setWalking()
 	{
@@ -62,7 +62,7 @@ public partial class AnimationController : AnimatedSprite2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// setXDirection();
+		setXDirection();
 		setWalking();
 		eat();
 		playAnimation();

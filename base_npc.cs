@@ -20,8 +20,8 @@ public partial class base_npc : StaticBody2D
 	public void setSize()
 	{
 		getFacing();
-		GD.Print($"{Name}:Facing:{facing}");
-		GD.Print($"{Name}: Scale: {scale}");
+		// GD.Print($"{Name}:Facing:{facing}");
+		// GD.Print($"{Name}: Scale: {scale}");
 		scale = (float)food / base_food;
 		Vector2 one_vector = new Vector2(1f * facing,1f);
 		Scale = one_vector * scale;
@@ -41,7 +41,7 @@ public partial class base_npc : StaticBody2D
 	public void getFacing()
 	{
 		Vector2 difference = GlobalPosition - prev_pos;
-		GD.Print($"{Name} difference: {difference}");
+		// GD.Print($"{Name} difference: {difference}");
 		if(difference.X > 0)
 		{
 			facing = 1;

@@ -19,19 +19,34 @@ public partial class mouse : CharacterBody2D
 	void setSize()
 	{
 		animation_scale = (float)food / base_food;
-		
-		if(direction.X > 0)
+
+
+
+			if(direction.X > 0)
+			{
+
+				food_detector.Scale = new Vector2(1, 1);
+				
+			}
+			if(direction.X < 0)
+			{
+
+				food_detector.Scale = new Vector2(-1, 1);
+			}
+
+			// GD.Print($"Mouse Scale: {animation_scale}, {Scale}");
+
+			Scale = new Vector2(animation_scale , animation_scale);
+			// Scale = new Vector2(Scale.X * facing, Scale.X);
+			
+	}
+
+	void quickFixScale()
+	{
+		if (Scale.Y < 0)
 		{
-			facing = 1;
+			Scale = new Vector2(Scale.X, -Scale.Y);
 		}
-		if(direction.X < 0)
-		{
-			facing = -1;
-		}
-		GD.Print(facing);
-		
-		Scale = new Vector2(animation_scale * facing , animation_scale);
-		
 	}
 
 
@@ -89,6 +104,7 @@ public partial class mouse : CharacterBody2D
 		int right = Convert.ToInt32(Input.IsActionPressed("right"));
 
 		direction = new Vector2(right - left, down - up).Normalized();
+		animation_controller.direction = direction;
 
 	}
 
@@ -109,5 +125,7 @@ public partial class mouse : CharacterBody2D
 		move();
 		eat();
 		setSize();
+		quickFixScale();
+		GD.Print($"{Name}: {Scale}");
 	}
 }
