@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf61kvkpda7jj"]
+
+[ext_resource type="PackedScene" uid="uid://oag5m2jfb5k2" path="res://base_npc.tscn" id="1_8qqfc"]
+[ext_resource type="Texture2D" uid="uid://dlypa0lukt8c" path="res://Assets/cheese_1.png" id="1_ypwqu"]
+[ext_resource type="Script" path="res://cheese.cs" id="2_dijxs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykl7m"]
+atlas = ExtResource("1_ypwqu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fpa3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ypwqu")
+}],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykl7m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ypwqu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Cheese" instance=ExtResource("1_8qqfc")]
+script = ExtResource("2_dijxs")
+
+[node name="AnimationController" parent="." index="0"]
+position = Vector2(0, 5)
+sprite_frames = SubResource("SpriteFrames_1fpa3")
+animation = &"walk"
+
+[node name="NPCCollision" parent="." index="1"]
+position = Vector2(0, 0)
