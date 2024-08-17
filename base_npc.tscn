@@ -21,7 +21,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of1gk"]
-size = Vector2(26, 20)
+size = Vector2(30, 32)
 
 [node name="BaseNPC" type="StaticBody2D"]
 
