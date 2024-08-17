@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Beat Mekanik - Ohms.mp3-38a28a1c9b0f4d82bb0b3
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
