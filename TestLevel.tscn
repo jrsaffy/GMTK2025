@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8u0dcc3ios4o"]
+
+[ext_resource type="Texture2D" uid="uid://deqpfdwy70diw" path="res://Assets/gmtk.PNG" id="1_ot10j"]
+[ext_resource type="PackedScene" uid="uid://dv0e5f5uy2t0o" path="res://mouse/mouse.tscn" id="2_ww6va"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 1.0
+offset_right = 371.0
+offset_bottom = 339.0
+texture = ExtResource("1_ot10j")
+
+[node name="Mouse" parent="." instance=ExtResource("2_ww6va")]
+position = Vector2(113, 68)
