@@ -11,7 +11,7 @@ public partial class FoodDetector : Area2D
 
 	public Godot.Collections.Array<Node2D> detectFood()
 	{	
-		bool food_in_area = false;
+		// bool food_in_area = false;
 		var overlappingBodies = (Godot.Collections.Array<Node2D>)GetOverlappingBodies();
 
 		// GD.Print(overlappingBodies);

@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://sshqaorhwvcb"]
+[gd_scene load_steps=22 format=3 uid="uid://sshqaorhwvcb"]
 
 [ext_resource type="PackedScene" uid="uid://oag5m2jfb5k2" path="res://base_npc.tscn" id="1_7b1p2"]
 [ext_resource type="Script" path="res://Dog.cs" id="2_2fs21"]
 [ext_resource type="Texture2D" uid="uid://887gj8iidyo6" path="res://Assets/street-animal/1 Dog/Attack.png" id="3_451ab"]
 [ext_resource type="Texture2D" uid="uid://bj7lmffeahrw8" path="res://Assets/street-animal/1 Dog/Idle.png" id="4_q8aww"]
 [ext_resource type="Texture2D" uid="uid://1b46fuaw55kv" path="res://Assets/street-animal/1 Dog/Walk.png" id="5_ybxby"]
+[ext_resource type="PackedScene" uid="uid://c31syrtbg073r" path="res://detector.tscn" id="6_6bmyo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpfvc"]
 atlas = ExtResource("3_451ab")
@@ -132,3 +133,6 @@ frame_progress = 0.138759
 
 [node name="NPCCollision" parent="." index="1"]
 position = Vector2(-3, 7)
+
+[node name="Detector" parent="." index="2" instance=ExtResource("6_6bmyo")]
+position = Vector2(0, 8)

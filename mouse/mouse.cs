@@ -1,10 +1,12 @@
 using Godot;
 using System;
+using System.Collections;
 
 public partial class mouse : CharacterBody2D
 {
 	
-	int speed = 75;
+	int speed;
+	int base_speed = 125;
 	int base_food = 5;
 	int food;
 	int facing = 1;
@@ -49,9 +51,14 @@ public partial class mouse : CharacterBody2D
 		}
 	}
 
+	public void getEaten()
+	{
+		food--;
+	}
 
 	public void move()
 	{
+		GD.Print($"Mouse Position: {Position}");
 		getDirection();
 		Velocity = speed * direction;
 		MoveAndSlide();
@@ -89,7 +96,7 @@ public partial class mouse : CharacterBody2D
 		else
 		{
 			animation_controller.eating = false;
-			speed = 75;
+			speed = base_speed;
 		}
 
 		
@@ -109,7 +116,13 @@ public partial class mouse : CharacterBody2D
 	}
 
 
-
+	void die()
+	{
+		if(food <= 0)
+		{
+			QueueFree();
+		}
+	}
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -117,6 +130,7 @@ public partial class mouse : CharacterBody2D
 		animation_controller = GetNode<AnimationController>("AnimationController");
 		food_detector = GetNode<FoodDetector>("FoodDetector");
 		food = base_food;
+		speed = base_speed;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -126,6 +140,7 @@ public partial class mouse : CharacterBody2D
 		eat();
 		setSize();
 		quickFixScale();
-		GD.Print($"{Name}: {Scale}");
+		die();
+		// GD.Print($"{Name}: {Scale}");
 	}
 }

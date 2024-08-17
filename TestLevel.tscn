@@ -1,16 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8u0dcc3ios4o"]
+[gd_scene load_steps=6 format=3 uid="uid://b8u0dcc3ios4o"]
 
 [ext_resource type="Texture2D" uid="uid://deqpfdwy70diw" path="res://Assets/gmtk.PNG" id="1_ot10j"]
 [ext_resource type="PackedScene" uid="uid://dv0e5f5uy2t0o" path="res://mouse/mouse.tscn" id="2_ww6va"]
 [ext_resource type="PackedScene" uid="uid://cf61kvkpda7jj" path="res://cheese.tscn" id="3_eymny"]
 [ext_resource type="Script" path="res://base_npc.cs" id="4_if2bc"]
 [ext_resource type="PackedScene" uid="uid://sshqaorhwvcb" path="res://dog.tscn" id="5_86516"]
-
-[sub_resource type="Curve2D" id="Curve2D_w6y36"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -5, 7, 0, 0, 0, 0, 282, 32, 0, 0, 0, 0, 29, 73, 0, 0, 0, 0, 29, 72, 0, 0, 0, 0, -5, 7)
-}
-point_count = 5
 
 [node name="TestLevel" type="Node2D"]
 
@@ -22,19 +16,11 @@ offset_bottom = 337.0
 texture = ExtResource("1_ot10j")
 
 [node name="Mouse" parent="." instance=ExtResource("2_ww6va")]
-position = Vector2(113, 68)
+position = Vector2(287, 70)
 
 [node name="Cheese" parent="." instance=ExtResource("3_eymny")]
 position = Vector2(161, 62)
 script = ExtResource("4_if2bc")
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(49, 133)
-curve = SubResource("Curve2D_w6y36")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-5, 7)
-rotation = 0.0868887
-rotates = false
-
-[node name="dog" parent="Path2D/PathFollow2D" instance=ExtResource("5_86516")]
+[node name="dog" parent="." instance=ExtResource("5_86516")]
+position = Vector2(44, 45)
