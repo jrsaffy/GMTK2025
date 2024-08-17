@@ -7,6 +7,8 @@ public partial class mouse : CharacterBody2D
 	int speed = 75;
 	int base_food = 5;
 	int food;
+	int facing = 1;
+	Vector2 direction;
 
 	float animation_scale = 1f;
 
@@ -17,23 +19,30 @@ public partial class mouse : CharacterBody2D
 	void setSize()
 	{
 		animation_scale = (float)food / base_food;
-		Vector2 one_vector = new Vector2(1f,1f);
-		animation_controller.Scale = one_vector * animation_scale;
+		
+		if(direction.X > 0)
+		{
+			facing = 1;
+		}
+		if(direction.X < 0)
+		{
+			facing = -1;
+		}
+		GD.Print(facing);
+		
+		Scale = new Vector2(animation_scale * facing , animation_scale);
+		
 	}
 
 
 	public void move()
 	{
-		Vector2 direction = getDirection();
+		getDirection();
 		Velocity = speed * direction;
 		MoveAndSlide();
 		
 	}
 
-	public void scale()
-	{
-
-	}
 
 	void eat()
 	{
@@ -72,18 +81,19 @@ public partial class mouse : CharacterBody2D
 		
 	}
 
-	public Vector2 getDirection()
+	public void getDirection()
 	{
 		int up = Convert.ToInt32(Input.IsActionPressed("up"));
 		int down = Convert.ToInt32(Input.IsActionPressed("down"));
 		int left = Convert.ToInt32(Input.IsActionPressed("left"));
 		int right = Convert.ToInt32(Input.IsActionPressed("right"));
 
-		Vector2 direction = new Vector2(right - left, down - up).Normalized();
-		animation_controller.direction = direction;
+		direction = new Vector2(right - left, down - up).Normalized();
 
-		return direction;
 	}
+
+
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

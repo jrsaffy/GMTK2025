@@ -105,20 +105,22 @@ size = Vector2(8, 7)
 script = ExtResource("1_wu8rb")
 
 [node name="AnimationController" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_ihu1l")
 animation = &"eat"
 script = ExtResource("5_0fusf")
 
 [node name="MouseCollider" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_57ejg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
 [node name="FoodDetector" type="Area2D" parent="."]
+position = Vector2(-1, -1)
 script = ExtResource("6_pwki2")
 
 [node name="FoodCollision" type="CollisionShape2D" parent="FoodDetector"]
-position = Vector2(13, 0.5)
+position = Vector2(13, 1)
 shape = SubResource("RectangleShape2D_dxc2r")
