@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://mouse/mouse.cs" id="1_wu8rb"]
 [ext_resource type="Texture2D" uid="uid://ccanhqbab1wt3" path="res://Assets/street-animal/6 Rat 2/eating.png" id="2_tbhn2"]
 [ext_resource type="Texture2D" uid="uid://tivi6mou3gap" path="res://Assets/street-animal/6 Rat 2/Walk.png" id="3_3sh1h"]
-[ext_resource type="Script" path="res://mouse/AnimationController.cs" id="3_mhrw5"]
+[ext_resource type="Script" path="res://BaseScripts/AnimationController.cs" id="5_0fusf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kvy5"]
 atlas = ExtResource("2_tbhn2")
@@ -111,7 +111,7 @@ script = ExtResource("1_wu8rb")
 sprite_frames = SubResource("SpriteFrames_ihu1l")
 animation = &"eat"
 frame_progress = 0.188285
-script = ExtResource("3_mhrw5")
+script = ExtResource("5_0fusf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)

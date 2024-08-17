@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://db8bfobseiu3k"]
+
+[ext_resource type="Script" path="res://BaseScripts/AnimationController.cs" id="1_yb6qc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yoi2p"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="AnimationController" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yoi2p")
+animation = &"eat"
+script = ExtResource("1_yb6qc")

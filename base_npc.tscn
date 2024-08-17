@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://oag5m2jfb5k2"]
+
+[ext_resource type="Script" path="res://base_npc.cs" id="1_eigcd"]
+[ext_resource type="PackedScene" uid="uid://db8bfobseiu3k" path="res://animation_controller.tscn" id="2_goqeo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwt0s"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of1gk"]
+size = Vector2(26, 20)
+
+[node name="BaseNPC" type="StaticBody2D"]
+script = ExtResource("1_eigcd")
+
+[node name="AnimationController" parent="." instance=ExtResource("2_goqeo")]
+position = Vector2(1, 4)
+sprite_frames = SubResource("SpriteFrames_bwt0s")
+
+[node name="NPCCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_of1gk")

@@ -22,10 +22,12 @@ public partial class mouse : CharacterBody2D
 		if (Input.IsActionPressed("eat"))
 		{
 			animation_controller.eating = true;
+			speed = 0;
 		}
 		else
 		{
 			animation_controller.eating = false;
+			speed = 75;
 		}
 	}
 
