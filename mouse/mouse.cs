@@ -17,6 +17,7 @@ public partial class mouse : CharacterBody2D
 	AnimationController animation_controller;
 	FoodDetector food_detector;
 	
+	
 
 	void setSize()
 	{

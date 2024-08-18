@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8u0dcc3ios4o"]
+[gd_scene load_steps=7 format=3 uid="uid://b8u0dcc3ios4o"]
 
 [ext_resource type="Texture2D" uid="uid://deqpfdwy70diw" path="res://Assets/gmtk.PNG" id="1_ot10j"]
 [ext_resource type="PackedScene" uid="uid://dv0e5f5uy2t0o" path="res://mouse/mouse.tscn" id="2_ww6va"]
 [ext_resource type="PackedScene" uid="uid://cf61kvkpda7jj" path="res://cheese.tscn" id="3_eymny"]
 [ext_resource type="Script" path="res://base_npc.cs" id="4_if2bc"]
 [ext_resource type="PackedScene" uid="uid://sshqaorhwvcb" path="res://dog.tscn" id="5_86516"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6ouok"]
+vertices = PackedVector2Array(0, 2, 368, 0, 369, 338, 0, 336)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 2, 368, 0, 369, 338, 0, 336)])
 
 [node name="TestLevel" type="Node2D"]
 
@@ -24,3 +29,6 @@ script = ExtResource("4_if2bc")
 
 [node name="dog" parent="." instance=ExtResource("5_86516")]
 position = Vector2(44, 45)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_6ouok")

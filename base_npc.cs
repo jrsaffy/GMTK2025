@@ -17,6 +17,7 @@ public partial class base_npc : StaticBody2D
 	public AnimationController animation_controller;
 	Vector2 Velocity;
 	public Vector2 target;
+	NavigationAgent2D nav_agent;
 	
 	public void setSize()
 	{
@@ -41,7 +42,7 @@ public partial class base_npc : StaticBody2D
 
 	public virtual void setTarget()
 	{
-		
+		nav_agent.TargetPosition = target;
 	}
 
 	public void getFacing()
@@ -79,6 +80,7 @@ public partial class base_npc : StaticBody2D
 	public virtual void move(double delta)
 	{
 		// GD.Print($"{Name}: Moving");
+		setTarget();
 		Vector2 direction = getDirection();
 		Velocity = speed * direction;
 		Translate(Velocity * (float)delta);
@@ -91,14 +93,29 @@ public partial class base_npc : StaticBody2D
 		// target = Position;
 		
 		float distance = (target - Position).Length();
-		if(distance > 16f)
+		if(distance < 16f)
 		{
-			Vector2 direction = (target - Position).Normalized();
+			Vector2 direction = new Vector2(0f, 0f);
 			return direction;
+		}
+		// else
+		// {
+		// 	Vector2 direction = new Vector2(0f, 0f);
+		// 	return direction;
+		// }
+
+		if (nav_agent.IsTargetReached())
+		{
+			GD.Print("TargetReached");
+			return Vector2.Zero; // No movement if the target is reached
 		}
 		else
 		{
-			Vector2 direction = new Vector2(0f, 0f);
+			GD.Print("This is Running");
+			Vector2 next_path_position = nav_agent.GetNextPathPosition();
+			Vector2 direction = (next_path_position - Position).Normalized();
+			GD.Print($"Nav Agent Target: {nav_agent.TargetPosition}, NestPathPosition: {next_path_position}, Position: {Position}");
+			GD.Print($"Direction: {direction}");
 			return direction;
 		}
 		
@@ -107,9 +124,11 @@ public partial class base_npc : StaticBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		target = Position;
 		prev_pos = GlobalPosition;
 		food = base_food;
 		animation_controller = GetNode<AnimationController>("AnimationController");
+		nav_agent = GetNode<NavigationAgent2D>("NavigationAgent2D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
