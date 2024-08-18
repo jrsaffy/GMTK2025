@@ -32,3 +32,5 @@ sprite_frames = SubResource("SpriteFrames_bwt0s")
 [node name="NPCCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_of1gk")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

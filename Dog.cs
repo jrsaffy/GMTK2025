@@ -17,9 +17,12 @@ public partial class Dog : base_npc
 
 	[Export]
 	public float chasing_time = 4000f; //4 seconds
+	public float eat_time = 500f;
 
-
+	System.Diagnostics.Stopwatch eating_timer = new System.Diagnostics.Stopwatch();
 	System.Diagnostics.Stopwatch chasing_timer = new System.Diagnostics.Stopwatch();
+
+	bool can_eat = true;
 
 
 	int facing = 1;
@@ -59,7 +62,21 @@ public partial class Dog : base_npc
 			target = player_detector.player.Position;
 			if ((target - Position).Length() < 20)
 			{	
-				Eat(player_detector.player);
+				if(can_eat)
+				{
+					Eat(player_detector.player);
+					can_eat = false;
+					eating_timer.Start();
+				}
+				else
+				{
+					if(eating_timer.ElapsedMilliseconds > eat_time)
+					{
+						can_eat = true;
+						eating_timer.Reset();
+						eating_timer.Stop();
+					}
+				}
 			}
 
 		}
