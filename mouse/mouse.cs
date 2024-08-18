@@ -16,6 +16,8 @@ public partial class mouse : CharacterBody2D
 
 	AnimationController animation_controller;
 	FoodDetector food_detector;
+
+	PackedScene butthole = GD.Load<PackedScene>("res://poop.tscn");
 	
 	
 
@@ -29,12 +31,14 @@ public partial class mouse : CharacterBody2D
 			{
 
 				food_detector.Scale = new Vector2(1, 1);
+				facing = 1;
 				
 			}
 			if(direction.X < 0)
 			{
 
 				food_detector.Scale = new Vector2(-1, 1);
+				facing = -1;
 			}
 
 			// GD.Print($"Mouse Scale: {animation_scale}, {Scale}");
@@ -63,6 +67,23 @@ public partial class mouse : CharacterBody2D
 		getDirection();
 		Velocity = speed * direction;
 		MoveAndSlide();
+		
+	}
+
+	public void takeAPoop()
+	{
+		if(food > 1)
+		{
+			if(Input.IsActionJustPressed("poop"))
+			{
+				GD.Print("Pooping");
+				Poop poop = (Poop)butthole.Instantiate();
+				poop.poopSpeed = 200 * -1 *facing;
+				poop.Position = this.Position;
+				GetTree().Root.AddChild(poop);
+				food--;
+			}
+		}
 		
 	}
 
@@ -142,6 +163,7 @@ public partial class mouse : CharacterBody2D
 		setSize();
 		quickFixScale();
 		die();
+		takeAPoop();
 		// GD.Print($"{Name}: {Scale}");
 	}
 }
